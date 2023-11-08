@@ -1,0 +1,226 @@
+"""
+Created on Thu May 11 10:29:48 2023
+
+@author: yyh
+"""
+
+#函数,定义函数，函数的括号里面有执行函数时所需要的信息，一般无信息也要有括号。
+def greet_user(username):
+    print(f'hello! {username.title()}!')
+    
+greet_user('yinyinghao')
+
+#实参和形参
+#上面的username是形参，‘yinyinghao’是实参，不要形参实参不分。
+
+def displey_message():
+    print('我在本章学习了函数')
+    
+displey_message()
+
+def favorite_book(book):
+    print(f'one of my favorite books is {book.title()}!')
+favorite_book('diqitian')
+
+#传递实参
+#位置实参,位置实参的顺序是非常重要的。
+def describe_pet(animal_type, pet_name):
+    print(f"I have a {animal_type}")
+    print(f"my {animal_type}'s name is {pet_name.title()}")
+
+describe_pet('dog','xiaohei')
+describe_pet('cat', 'tom')
+
+#关键字实参,这里的顺序无所谓，这个已经直接赋值给实参了，这里需要准确指定实参。
+describe_pet(animal_type= 'dog', pet_name = 'xiaobai')
+
+#默认值,编写函数时可以给形参提供默认值，需要改写再赋新值
+def describe_pet(pet_name,animal_type = 'dog'):
+    print(f"I have a {animal_type}")
+    print(f"my {animal_type}'s name is {pet_name.title()}")
+
+describe_pet('xiaohei')
+describe_pet(pet_name='xiaohei')
+
+#等效函数调用，基本上每种都有很多种调用方式，只需要获取我们最熟悉的调用方式即可
+#避免实参错误，我们可能会输入过少的实参
+#返回值
+def get_formatted_name(first_name,last_name):
+    full_name = f"{first_name} {last_name}"
+    return full_name.title()
+musician = get_formatted_name('jay', 'chou')
+print(musician)
+
+#让实参变成可选的
+def get_formatted_name(first_name,last_name,middle_name= ''):
+    if middle_name:
+        full_name = f"{first_name} {middle_name} {last_name}"
+    else:
+        full_name = f"{first_name} {last_name}"
+    return full_name
+        
+print(get_formatted_name('jay', 'chou'))
+print(get_formatted_name('jay', 'chou','jielun'))
+
+#返回字典
+def build_person(first_name,last_name):
+    person= {'first_name':first_name,'last_name':last_name}
+    return person
+musician = build_person('jay', 'chou')
+print(musician)
+
+#结合使用函数和while循环
+# def get_formatted_name(first_name,last_name):
+#     full_name = f"{first_name} {last_name}"
+#     return full_name
+# while True:
+#     print("\nplease tell me your name")
+#     print("you can enter q at any time to quit")
+#     f_name = input("first_name:")
+#     if f_name == 'q' :
+#         break
+#     l_name = input("last_name:")
+#     if l_name == 'q':
+#         break
+    
+#     formatted_name = get_formatted_name(f_name, l_name)
+#     print(f"\nhello,{formatted_name}!")
+
+def city_country(city_name,country_name):
+    message = f"{city_name},{country_name}"
+    return message
+message1 = city_country('shanghai', 'china')
+message2 = city_country('dongjing', 'japan')    
+message3 = city_country('eluosi', 'russia')
+print(message1,message2,message3)
+
+def make_album(singer,album_name,number = ''):
+    if number :
+        album = {'singer':singer,'alum_name':album_name,'song_number':number}
+    else:
+        album = {'singer':singer,'alum_name':album_name}
+    return album
+message = make_album('jay chou', 'kuashidai',8)
+print(message)
+
+# album_i = {}
+# albums = []
+# def album(singer,album_name,number= ''):
+#     if number:
+#         album_i = {'singer':singer,'album_name':album_name,'number':number}
+#     else:
+#         album_i = {'singer':singer,'album_name':album_name}
+#     return album_i
+    
+# while True:
+#     print('you can type q to excit anytime')
+#     singer = input("please input singer's name")
+#     if singer == 'q':
+#         break
+#     album_name = input("please input album's name")
+#     if album_name == 'q':
+#         break
+#     number = input("please input the number of songs in this album")
+#     if number == 'q':
+#         break
+#     dic = album(singer, album_name,number)
+#     albums.append(dic)
+
+#传递列表
+def greet_users(names):
+    for name in names:
+        message = f"hello, {name.title()}!"
+        print(message)
+
+user_names = ['yyh','luohu','wangkun']
+greet_users(user_names)
+
+#在函数中修改列表
+
+def complete(uncompleted,complete):
+    while uncompleted:
+        uncompleted1 = uncompleted.pop()
+        print(f'i will complete {uncompleted1}')
+        complete.append(uncompleted1)
+    
+def show_completed(complete):
+    print('\nthese had completed:')
+    for name in complete:
+        print(f'\n {name}')
+        
+uncompleted_part = ['diyizhang','dierzhang','disanzhang']
+completed_part = []    
+# complete(uncompleted_part, completed_part)
+# show_completed(completed_part)
+
+#禁止函数修改列表,这里取原序列的副本作为实参
+complete(uncompleted_part[:], completed_part)
+
+#8-9
+def print_message(example):
+    for message in example:
+        print(message)
+message = ['you can come with me',"it's time to go","you'd better to go there now"]
+print_message(message)
+
+#8-10
+def send_message(example1,example2):
+    while example1:
+        send_message_i = example1.pop()
+        print(f"you have sent '{send_message_i}'.")
+        example2.append(send_message_i)
+sent_message = []
+print('there will be many messages that we are supposed to send')        
+print_message(message)
+send_message(message[:], sent_message[:])
+
+print(sent_message)
+print(message)
+
+#传递任意数量实参,这里可以给形参加星号，这里表示形参变成一个元组，单个元组的元素后面要加逗号
+def make_pizza(*toppings):
+    print("\n making this pizza nees these toppings:")
+    for topping in toppings:
+        print(f"-{topping}")
+make_pizza('salad',)
+make_pizza('salad','tomato')
+
+#结合使用位置实参和任意数量实参,*args表示收集任意数量的位置实参
+def make_pizza2(size,*toppings):
+    print(f"making a {size} pizza needs these toppings:")
+    for topping in toppings:
+        print(f'{topping}\n')
+make_pizza2(15, 'tomato','salad')
+
+#使用任意数量的关键字实参,**kwargs用于收集任意数量的关键字实参
+def build_profile(first,last,**user_info):
+    user_info['first_name'] = first
+    user_info['last_name'] = last
+    return user_info
+
+user_profile = build_profile('yyh', 'qiyuan', location= 'china',telephone= '13278863600')
+print(user_profile)
+
+#8-12
+def sandwich(*needs):
+    print("custom's sandwich needs these toppings:")
+    for need in needs:
+        print(f"{need}")
+sandwich('tomato','salad','candles')
+
+#将函数存储在模块中
+#要让函数是可导入的首先要创建模块，模块是扩展名为.py的文件
+#导入特定的函数
+#from module_name import function_name
+#from module_name import function1,function2,function3
+#在导入函数后，不再需要在文件名下加句点，直接使用函数即可，其中导入函数是显示导入的。
+
+#使用as命名
+#import module_name as mn
+#from module_name import function_name as fn
+
+#导入模块中的所有函数
+#from module_name import *
+
+#给形参指定默认值时，等号两边不要空格
+#对于函数的关键字实参也要遵循等号两边不能用空格
