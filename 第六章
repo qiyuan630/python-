@@ -1,0 +1,133 @@
+"""
+Created on Sat May  6 12:12:08 2023
+
+@author: yyh
+"""
+
+#字典
+alien_0 = {'color':'green','points':5}
+print(alien_0['color'])
+print(alien_0['points'])
+
+new_points = alien_0['points']
+print(f"you just obtain {new_points} points")
+print(f"you just obtain {alien_0['points']} points")
+
+alien_0['x_position'] = 2
+alien_0['y_position'] = 30
+print(alien_0)
+
+#我们可以首先定义一个空字典，再对字典添加键值对
+#alien_0={}
+
+print(f"the alien is {alien_0['color']}.")
+alien_0['color'] = 'yellow'
+print(f"the alien is {alien_0['color']} now.")
+
+#修改字典中的值
+alien_0['speed'] = 'medium'
+alien_0['x_position'] = 0
+if alien_0['speed'] == 'medium':
+    x_increment = 2
+elif alien_0['speed'] == 'slow':
+    x_increment = 1
+else:
+    x_increment = 3
+alien_0['x_position'] = alien_0['x_position']+x_increment
+print(alien_0)
+
+#删除键值对,删除的键值对会永远消失
+del alien_0['points']
+
+#可以针对同一字段记录不同对象的信息，外星人是针对同一对象记录不同字段
+favorite_language={'yyh':'python','luohu':'r'}
+print(f"yyh's favorite language is {favorite_language['yyh'].title()}")
+
+#使用get来访问值,当我们调用get函数的时候，如果在获得第一个字段未赋值时，第二个变量没有赋值，那么我们一般会输出none，这里none不是没有意义的。
+point_value = alien_0.get('points','no point value assigned!')
+print(point_value)
+
+person = {'first_name':'yinghao','last_name':'yin','age':'23','city':'changsha'}
+print(person)
+
+python = {'插入':'insert','获取':'append','删除':'del','弹出':'pop'}
+print(f"插入是{python['插入']}")
+print(f"获取是{python['获取']}")
+print(f"删除是{python['删除']}")
+print(f"弹出是{python['弹出']}")
+
+#遍历字典
+user_name = {'username':'yinyinghao','first':'yinghao','last':'yin'}
+for key, value in user_name.items():
+    print(f"\n key:{key}")
+    print(f"value:{value}")
+
+for name, language in favorite_language.items():
+    print(f"{name.title()}'s favorite language is {language.upper()}")
+
+#遍历字典里面的所有键，直接不使用keys函数，两部分可以产生相同的结果，并不会有影响。
+for name in favorite_language.keys():
+    print(name.title())
+    
+for name in favorite_language:
+    print(name.title())
+    
+friends = ['luohu']
+for name in favorite_language.keys():
+    print(f"Hi {name.title()}!")
+    if name in friends :
+            print(f"\t{name}, I see you love {favorite_language[name].title()}!")
+
+for name in sorted(favorite_language.keys()):
+    print(f"{name.title()}, thank you for taking the poll")
+
+for language in favorite_language.values():
+    print(f"{language}")
+    
+#如果存在多个重复值，可以使用set函数去除重复值
+favorite_language['wangkun'] = 'r'
+
+for language in set(favorite_language.values()):
+    print(language.title())
+
+#集合和字段有容易混淆，他们都是用花括号定义的，集合不会以特定的顺序
+
+#嵌套
+alien_0 = {'color':'green','points':5}
+alien_1 = {'color':'yellow','points':6}
+alien_2 = {'color':'blue','points':7}
+
+aliens = [alien_0,alien_1,alien_2]
+for alien in aliens:
+    print(alien)
+    
+aliens = []
+for i in range(30):
+    new_alien = {'color':'green','points':7}
+    aliens.append(new_alien)
+for alien in aliens[:3]:
+    if alien['color'] == 'green':
+        alien['color'] = 'red'
+        alien['points'] = 9
+for i in range(5):
+    print(aliens[i])
+yyh = {'liuji':483,'xuexiao':['牡丹江一中','中南大学']}
+print(f"尹英豪的六级成绩是{yyh['liuji']},尹英豪的高中是在{yyh['xuexiao'][0]},大学就读于{yyh['xuexiao'][1]}")   
+    
+    
+favorite_language = {'yinyinghao':['r','python','matlab'],'wangkun':['c++','go'],'luohu':['r','c++']}
+for name in favorite_language.keys():
+    print(f"{name}'s favorite language:")
+    for language in favorite_language[name]:
+        print(f"{language}")
+#列表和字典的嵌套次数不应该过多，过多层级可能存在更好的解决办法。
+
+cities = {
+    'changsha':{'country':'China','population':'40t'},  
+    'dongjing':{'country':'Japan','population':'50t'},
+    'newyork':{'country':'America','population':'55t'}}   
+for city in cities.keys():
+    print(city)
+    city_information = cities[city]
+    for key in city_information.keys():
+        print(f"{key}:{city_information[key]}")
