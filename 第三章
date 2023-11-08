@@ -1,1 +1,128 @@
+"""
+Created on Thu Apr 13 13:45:08 2023
+
+@author: yyh
+"""
+import numpy as np
+
+2+3
+3-2
+2*3
+
+c= 3**3
+print(c)
+math = ['weifenliuxing','shuxuefenxi','gaodengdaishu','statistics']
+print(math)
+print(math[0])  #访问元素，返回值不带方括号
+print(math[2].title())   #组合式的直接将提取出的字段首字母大写
+#索引是从0开始，并不是从1开始
+print(math[-1])
+message = f"my favourite subject is {math[3]}"  #f"是进行字符串拼接的指令
+
+math[0] = 'chouxiangdaishu' #对列表特定字段进行修改
+
+#append函数在列表中是可以直接增加元素，在numpy中可以直接获取多维列表中，在初始阶段的获取过程非常重要
+math.append('fanhanfenxi')
+math = np.array(math)
+
+province =[]
+province.append('zhejiang')
+province.append('hunan')
+province.append('heilongjiang')  #这个函数只能输入一个元素，如果要输入变量要分开输入
+
+#插入数据
+province.insert(1, 'jiangsu')
+#删除数据del方法
+del province[3]
+#删除数据pop方法,删除数据后可以弹出，类似于出栈过。假如列表中的元素是按照一定时间顺序存储的，我们可以弹出最后输入的数据
+popped_province = province.pop()
+#弹出列表中具体位置的数据,这里的弹出是指数据已经的弹出，原列表中已经不存在该数据了。
+first_position = province.pop(0)
+print(f"The location of my town is {first_position.title()}")
+
+province.insert(1,'henan')
+province.insert(2,'hunan')
+province.insert(3,'heilongjiang')
+province.insert(4,'hunan')
+
+#使用remove从列表中删除元素，这里强调remove只是remove其中的第一个值，其他剩下的相同值不会删除。
+
+province_remove= 'hunan'
+province.remove(province_remove)
+province.remove('jiangsu')
+print(province)
+
+#第三章动手试一试
+participate = ['linaifen','yinhongwu','yinyingcheng','yeye','nainai']
+absent = 'yinyingcheng'
+participate.remove(absent)
+print(f"{absent} has other things,so he can't come to this meeting")
+participate.append('yyh')
+for i in range(0,4,1):
+    print(f'{participate[i]} ,welcome to this meeting')
+participate.insert(0,'guma')
+participate.insert(5,'gufu')
+participate.append('jiejie')
+
+for i in range(0,3,1):
+    absent = participate.pop(i)
+    participate.pop(i)
+    print(f"I'm sorry,{absent} can't come to this meeting!")
+
+del participate[0]
+del participate[0]
+
+#组织列表
+#永久改变了列表元素的排列顺序，再也无法恢复到原来的排列顺序，这里的reverse = true是表示反序排列。
+zhaolei = ['wojide','sanshisuidenvren','xiegeijiejiedexin']
+zhaolei.sort()
+print(zhaolei)
+zhaolei.sort(reverse=True)
+print(zhaolei)
+
+#sorted函数是对列表进行临时排序,并不改变原有的列表顺序
+print('here is the original list:')
+print(zhaolei)
+
+print('\nhere is the sorted list:')
+print(sorted(zhaolei))
+
+print('\nhere is the original list again')
+print(zhaolei)
+
+#这里的反转只是根据原有的顺序讲顺序完全反转，而不是根据字母顺序反转
+zhaolei.reverse()
+print(zhaolei)
+#列表的长度
+print(len(zhaolei))
+
+want = ['xinjiapo','xizang','yingguo','meiguo','riben']
+print(want)
+print(sorted(want))
+print(want)
+print(sorted(want,reverse=True))
+print(want)
+want.reverse()
+print(want)
+want.reverse()
+print(want)
+want.sort()
+print(want)
+want.sort(reverse=True)
+print(want)
+
+
+print(f'here is {len(participate)} person')
+
+print(want[-1])
+print(len(want))
+print(want[4])
+
+
+
+
+
+
+
+
 
