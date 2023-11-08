@@ -1,0 +1,232 @@
+"""
+Created on Tue May 16 19:22:38 2023
+
+@author: yyh
+"""
+
+#创建dog类,对于self属于说init自带的形参,以self为前缀的变量可以供类内的所有函数使用。
+class Dog:
+    # 一次模拟小狗的简单尝试
+    
+    def __init__(self,name,age):
+        self.name = name
+        self.age = age
+    
+    def sit(self):
+        print(f'{self.name} is sitting now')
+    
+    def roll_over(self):
+        print(f"{self.name} is rolling over")
+    
+my_dog = Dog('jim', 6)
+print(f"my dog's name is {my_dog.name}")    
+print(f"my dog's age is {my_dog.age}")
+#这里记住init两端的下划线都是两个下滑线
+my_dog.sit()
+my_dog.roll_over()
+
+your_dog = Dog('jerry',3)
+print(f"my dog's name is {my_dog.name}")    
+print(f"my dog's age is {my_dog.age}")
+my_dog.sit()
+
+print(f"your dog's name is {your_dog.name}")
+print(f"my dog's name is {my_dog.name}")
+your_dog.sit()
+
+#9-1
+class Restaurant:
+    def __init__(self,name,type):
+        self.name = name
+        self.type = type 
+    def describe(self):
+        print(f"this restaurant's name is {self.name}")        
+        print(f"thie restaurant's type is {self.type}")
+    def open_restaurant(self):
+        print(f"{self.name} is opening")
+        
+first_restaurant = Restaurant('mala', 5)
+second_restaurant = Restaurant('jiqi', 6)
+first_restaurant.describe()
+first_restaurant.open_restaurant()
+second_restaurant.describe()
+second_restaurant.open_restaurant()
+
+class Users:
+    def __init__(self,first_name,last_name):
+        self.first_name = first_name
+        self.last_name = last_name
+    def describe(self):
+        print(f"this person's name is {self.last_name} {self.first_name}")
+    def greet_users(self):
+        print(f"hello! {self.firt_name}")
+        
+first_person = Users('yinghao', 'yin')
+first_person.describe()       
+
+class Car:
+    def __init__(self,make,model,year):
+        self.make = make
+        self.model = model
+        self.year = year
+    
+    def get_decriptive_message(self):
+        long_name = f"{self.make} {self.model} {self.year}"
+        return long_name.title()
+
+my_new_car = Car('audi', 'a4', 2019)
+print(my_new_car.get_decriptive_message())
+
+#给属性指定默认值
+class Car:
+    def __init__(self,make,model,year):
+        self.make = make
+        self.model = model
+        self.year = year
+        self. odometer = 0
+    
+    def get_decriptive_message(self):
+        long_name = f"{self.make} {self.model} {self.year}"
+        return long_name.title()
+    def read_odometer(self):
+        print(f"this car has {self.odometer} miles on it.")
+
+my_new_car = Car('audi', 'a4', 2019)
+my_new_car.read_odometer()
+    
+#修改属性的值
+class Car:
+    def __init__(self,make,model,year):
+         self.make = make
+         self.model = model
+         self.year = year
+         self. odometer = 0
+     
+    def get_decriptive_message(self):
+         long_name = f"{self.make} {self.model} {self.year}"
+         return long_name.title()
+     
+    def read_odometer(self):
+         print(f"this car has {self.odometer} miles on it.")       
+my_new_car = Car('audi', 'a4', 2019)      
+my_new_car.odometer = 23
+my_new_car.read_odometer()
+
+class Car:
+    def __init__(self,make,model,year):
+         self.make = make
+         self.model = model
+         self.year = year
+         self. odometer = 0
+     
+    def get_decriptive_message(self):
+         long_name = f"{self.make} {self.model} {self.year}"
+         return long_name.title()
+     
+    def read_odometer(self):
+         print(f"this car has {self.odometer} miles on it.")  
+    def update_odometer(self,new):
+        if new >= self.odometer:
+            self.odometer =  new
+        else:
+            print("you can't update new odometer")
+my_new_car = Car('audi', 'a4', 2019)  
+my_new_car.update_odometer(42)
+my_new_car.read_odometer()
+my_new_car.update_odometer(25)
+
+#通过方法对属性的值进行递增处理。
+
+class Car:
+    def __init__(self,make,model,year):
+        self.make = make
+        self.model = model
+        self.year = year
+        self.odometer = 0
+    def increment_odometer(self,new):
+        self.odometer += new
+
+my_new_car = Car('audi','a4',2019)
+my_new_car.increment_odometer(30)
+print(my_new_car.odometer)
+
+#9-5
+class Users:
+    def __init__(self,first_name,last_name,login_attempts):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.login_attempts = login_attempts
+    def describe(self):
+        print(f"this person's name is {self.last_name} {self.first_name}")
+    def greet_users(self):
+        print(f"hello! {self.first_name}")
+    def increment_login_attempts(self):
+        self.login_attempts += 1
+    def reset_login_attempts(self):
+        self.login_attempts = 0
+first_person = Users('yinghao', 'yin',1)
+first_person.describe()   
+first_person.increment_login_attempts()
+print(first_person.login_attempts)
+first_person.reset_login_attempts()
+print(first_person.login_attempts)
+
+#继承
+#一个类继承另一个类时，将自动获得另一个类所有的属性和方法。原有的类是父类，后来的类是子类，子类继承父类的所有方法，同时还可以定义自己的属性和方法
+#给子类定义属性和方法
+#重写父类的方法
+class Car:
+    def __init__(self,make,model,year):
+        self.make = make
+        self.model = model
+        self.year = year
+    
+    def get_decriptive_message(self):
+        long_name = f"{self.make} {self.model} {self.year}"
+        return long_name.title()
+class ElectricCar(Car):
+    def __init__(self, make, model, year):
+        super().__init__(make, model, year)
+        self.battery_size = 70
+    def describe_battery(self):
+        print(f"this car.s battery_size is {self.battery_size}")
+    def fill_gas_tank(self):
+        print("this car doesn't need a gas tank")
+        
+my_car = ElectricCar('china', 'hongqi', 2019)    
+print(my_car.get_decriptive_message())
+my_car.describe_battery()
+my_car.fill_gas_tank()
+
+#将实例用作属性
+class battery:
+    def __init__(self,battery_size = 75):
+        self.battery_size = battery_size
+    def describe_battery(self):
+        print(f"this car has a {self.battery_size}kwh battery")
+    def get_range(self):
+        if self.battery_size == 75:
+            range = 260
+        elif self.battery_size == 100:
+            range = 3315
+        print(f"this car can go about {range} miles on a full charge.")
+
+class ElectricCar(Car):
+    def __init__(self,make,model,year):
+        super().__init__(make, model, year)
+        self.battery = battery()
+        self.battery.battery_size = 100
+my_car = ElectricCar('china', 'hongqi', 2019)    
+my_car.battery.describe_battery()
+my_car.battery.get_range()
+
+
+
+
+
+
+
+
+
+
+          
