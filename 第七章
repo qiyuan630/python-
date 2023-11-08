@@ -1,0 +1,153 @@
+"""
+Created on Tue May  9 20:01:17 2023
+
+@author: yyh
+"""
+
+message = input("tell me something, and i will repeat it back to you: ")
+print(message)
+
+name = input("please enter your name:")
+print(name)
+prompt = "if you tell us who you are, we can personalize the message you see"
+prompt += "\nWhat is your first name?"
+name = input(prompt)
+print(f"\nhello,{name.title()}!")
+
+age = input('how old are you?')
+print(age)
+#age >= 18
+
+height = input('how tall are you ,in inches?')
+height = int(height)
+if height >=48:
+    print("\n you are tall to ride!")
+else:
+    print("\nyou'll be able to ride when you are a little older")
+    
+number = input("Enter a number, and i'll tell if it's even or odd:")
+number = int(number)
+
+if number % 2 == 0:
+    print("this number is even!")
+else:
+    print("this is odd!")
+
+message = 'what kind of cars do you want?'
+message += '\nI can help to find it!'
+message1 = input(message)
+print(f'let me see if i can find you a {message1}!')
+
+people = input('how many people have dinner here?')
+people = int(people)
+if people >=8:
+    print('there is no empty position!')
+else:
+    print('there is the empty position')
+    
+number = input('you can insert a number')
+number = int(number)
+if number%10 == 0 :
+    print('他是十的倍数')
+else:
+    print('她不是十的倍数')
+
+current_number = 1
+while current_number <= 5:
+    print(current_number)
+    current_number += 1
+    
+#我们在其中定义一个退出值
+prompt = "\nTell me something, and i will repeat it back to you "
+prompt += "\nEnter 'quit' to end the program "
+message = ""
+while message != 'quit':
+    message = input(prompt)
+    if message != 'quit':
+        print(message)
+
+#在函数中使用
+prompt = "\nPlease enter the name of a city you have visted"
+prompt += "\nEnter 'quit' when you are finished"
+while True:
+    city = input(prompt)
+    if city == 'quit':
+        break
+    else:
+        print(city)
+        
+current_number = 0
+while current_number <10:
+    current_number += 1
+    if current_number % 2 == 0:
+        continue
+    print(current_number)
+
+
+mixed =[]
+while True:
+    mix = input("what do you want to add?")
+    if mix == 'quit':
+        break
+    else:
+        mixed.append(mix)
+        print(mix)
+
+mixed = []
+active = True
+while active:
+    mix = input('what will add to the sandwich?')
+    if mix == 'quit':
+        active = False
+    else:
+        mixed.append(mix)
+        print(mix)
+
+mixed = []
+prompt = 'what will you add in this sandwich?'
+message=''
+while message != 'quit':
+    message = input(prompt)   
+    mixed.append(message)
+
+age = input('请输入您的年龄')
+while age != 'quit':
+    age = int(age)
+    if age <= 3:
+        print('you are free')
+    elif age <= 12:
+        print('your ticket price is 10')
+    else:
+        print('your ticket price is 15')
+
+#使用while循环处理列表和字典
+unconfirmed_users = ['yyh','luohu','wangkun']
+confirmed_users = []
+while unconfirmed_users:
+    current_user = unconfirmed_users.pop()
+    confirmed_users.append(current_user.title())
+print(confirmed_users)
+
+pets = ['dog','cat','dog','cat','goldfish','rabbit''cat']
+while 'cat' in pets:
+    pets.remove('cat')
+print(pets)
+
+responses = {}
+polling_active = True
+while polling_active:
+    name = input("\nwhat's your name?")
+    response = input("\nwhat's your answer about this question?")
+    responses[name] = response
+    repeat = input('would you like to let another person respond?y/n')
+    if repeat == 'n':
+        polling_active = False
+
+
+sandwich_orders = ['a','b','c']
+finished_orders = []
+while sandwich_orders:
+    sandwich = sandwich_orders.pop()
+    print(f"i made your {sandwich} sandwich")
+    finished_orders.append(sandwich)
+print(finished_orders)
