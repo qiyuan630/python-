@@ -1,0 +1,112 @@
+"""
+Created on Mon Apr 24 19:56:51 2023
+
+@author: yyh
+"""
+#for循环缩进一定要注意。
+magicians = ['alice','david','carolina']
+for magician in magicians:
+    print(magician)
+for magician in magicians:
+    print(f'{magician.title()} , that was a great trick')
+    print(f"I can't wait to see your next trick,{magician.title()}.\n")
+print('thank you!')
+
+#后湖餐馆
+houhu = ['shuizhuroupian','changfen','yufen','huimian']
+for restaurant in houhu:
+    print(f"I like this restaurant:{restaurant}")
+print(f"I like them all !")
+
+#range函数,range函数会有差1情况，只会到最后一个数字时停止，并不会输出。若range函数里面只输入一个数字，那么输出会从0开始
+for value in range(1,5,2):
+    print(value)
+for value in range(5):
+    print(value)
+numbers = list(range(0,11,2))
+print(numbers)
+squares = []
+for value in numbers:
+    square = value**2
+    squares.append(square)
+print(squares)
+print(sum(numbers))
+print(min(numbers))
+print(max(numbers))
+
+#列表解析，注意这里的for循环后没有句号
+squares =[value**2 for value in range(1,11)]
+print(squares)
+
+for i in range(1,21):
+    print(i)
+number = list(range(1,100000,))
+print(sum(number))
+list1 =[]
+for i in range(1,21,2):
+    list1.append(i)
+print(list1)
+list2 = []
+for j in range(3,31,3):
+    list2.append(j)
+print(list2)
+list3 =list(range(1,11))
+list4 = list(value**3 for value in list3)
+print(list4)
+
+#可以直接取列表里面的特定位置的切片，[-3:]这个是指最后三个元素
+print(houhu[0:4])
+print(houhu[-2:])
+
+#复制列表[:]
+houhu1= houhu[:]
+print(houhu1)
+houhu1.append('baozi')
+print(houhu1)
+houhu.append('jiaozi')
+print(houhu)
+
+#定义元组,存储一组值在程序的整个生命周期均不变
+dimensions = (200,50)
+print(dimensions[0])
+print(dimensions[1])
+
+dimensions = (200,50)
+for dimension in dimensions:
+    print(dimension)
+
+dimensions = (400,100)
+for dimension in dimensions:
+    print(dimension)
+
+foods = ('hamburger','jiaozi','baozi','miantiao','hefan')
+for food in foods:
+    print(food)
+
+
+
+car = 'subaru'
+print("Is car == 'subaru' ? I predict True.")
+print(car == 'subaru')
+print("\nIs car = 'audi'? I predict False")
+print(car == 'audi')
+
+#if语句
+age = 19
+if age >= 18:
+    print("you are old enough to vote!")
+    print("have you registered to vote yet?")
+else:
+    print("you don't have the chance to vote")
+
+
+if age <= 4:
+    print("your admission cost is 0")
+elif age <18:
+    print("your admission cost is 50")    
+else:
+    print("your admission cost is 100")
+    
+price = 10  
+print(f"your admission price is ${price}")
+    
